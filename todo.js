@@ -13,7 +13,7 @@ const todoList = () => {
       // ..
       // ..
       // ..
-      return all.filter((item)=> item.dueDate<new Date().toLocaleDateString("en-CA"));
+      return all.filter((listItem)=> listItem.dueDate < new Date().toLocaleDateString("en-CA"));
     }
   
     const dueToday = () => {
@@ -22,7 +22,7 @@ const todoList = () => {
       // ..
       // ..
       // ..
-      return all.filter((item)=> item.dueDate==new Date().toLocaleDateString("en-CA"));
+      return all.filter((listItem)=> listItem.dueDate == new Date().toLocaleDateString("en-CA"));
     }
   
     const dueLater = () => {
@@ -31,7 +31,7 @@ const todoList = () => {
       // ..
       // ..
       // ..
-      return all.filter((item)=> item.dueDate>new Date().toLocaleDateString("en-CA"));
+      return all.filter((listItem)=> listItem.dueDate >new Date().toLocaleDateString("en-CA"));
     }
   
     const toDisplayableList = (list) => {
@@ -41,15 +41,15 @@ const todoList = () => {
       // ..
       // ..
       // return OUTPUT_STRING
-       let res = list
+       let x = list
       .map(
-        (item) =>
-          `${item.completed ? "[x] " : "[ ] "}${item.title} ${
-            item.dueDate === today ? " " : item.dueDate
+        (listItem) =>
+          `${listItem.completed ? "[x] " : "[ ] "}${listItem.title} ${
+            listItem.dueDate === today ? " " : listItem.dueDate
           }`
       )
       .join("\n");
-    return res;
+    return x;
     }
   
     return { all, add, markAsComplete, overdue, dueToday, dueLater, toDisplayableList };
